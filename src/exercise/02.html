@@ -23,8 +23,17 @@
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
 
+    const helloElement = React.createElement('span', {
+      children: 'Hello',
+      key: 'hello',
+    })
+    const worldElement = React.createElement('span', {
+      children: 'World',
+      key: 'world',
+    })
+
     const element = React.createElement('div', {
-      children: 'Hello World',
+      children: [helloElement, ' ', worldElement],
       className: 'container',
     })
 
