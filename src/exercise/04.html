@@ -22,7 +22,9 @@
 
     const PropTypes = {
       string(props, propName, componentName) {
-        if (typeof props[propName] !== 'string' || props[propName] === '') {
+        const prop = props[propName]
+        const type = typeof prop
+        if (type !== 'string' || prop === '') {
           return new Error(
             `Component ${componentName} prop ${propName} must be a valid, non-empty string`,
           )
