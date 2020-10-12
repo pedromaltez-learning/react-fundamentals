@@ -20,11 +20,11 @@
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
 
-    const message = props => <div className="message" {...props}></div>
+    const Message = props => <div className="message" {...props}></div>
     const element = (
       <div className="container">
-        {React.createElement(message, {children: 'Hello World'})}
-        {React.createElement(message, {children: 'Goodbye World'})}
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
       </div>
     )
 
