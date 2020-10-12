@@ -20,11 +20,31 @@
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
 
-    const Message = props => <div className="message" {...props}></div>
+    const PropTypes = {
+      string(props, propName, componentName) {
+        if (typeof props[propName] !== 'string' || props[propName] === '') {
+          return new Error(
+            `Component ${componentName} prop ${propName} must be a valid, non-empty string`,
+          )
+        }
+      },
+    }
+
+    const Message = ({subject, greeting}) => (
+      <div className="message">
+        {greeting}, {subject}
+      </div>
+    )
+
+    Message.propTypes = {
+      subject: PropTypes.string,
+      greeting: PropTypes.string,
+    }
+
     const element = (
       <div className="container">
-        <Message>Hello World</Message>
-        <Message>Goodbye World</Message>
+        <Message greeting="Hello" subject="World" />
+        <Message greeting="Goodbye" subject="World" />
       </div>
     )
 
