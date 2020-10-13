@@ -13,13 +13,12 @@ import '../box-styles.css'
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
 
-const Box = props => (
+const Box = ({className = '', style, ...otherProps}) => (
   <div
-    className={`box ${props.className}`}
-    style={{fontStyle: 'italic', ...props.style}}
-  >
-    {props.children}
-  </div>
+    className={`box ${className}`.trim()}
+    style={{fontStyle: 'italic', ...style}}
+    {...otherProps}
+  />
 )
 
 function App() {
